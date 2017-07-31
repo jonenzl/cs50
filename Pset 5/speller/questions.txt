@@ -1,0 +1,36 @@
+0.  What is pneumonoultramicroscopicsilicovolcanoconiosis?
+
+    Pneumonoultramicroscopicsilicovolcanoconiosis is an invented long word said to mean a lung disease caused
+    by inhaling very fine ash and sand dust. The word was invented in the 1930s in imitation of very long medical terms.
+
+1.  According to its man page, what does getrusage do?
+
+    getrusage() returns resource usage measures, which can be one of the following: RUSAGE_SELF, RUSAGE_CHILDREN, or RUSAGE_THREAD.
+    
+2.  Per that same man page, how many members are in a variable of type struct rusage?
+
+    There are 16 members in a variable of type struct rusage.
+
+3.  Why do you think we pass before and after by reference (instead of by value) to calculate,
+    even though we’re not changing their contents?
+    
+    We want to pass before and after by reference because we do not want to create copies of the struct rusage which would
+    significantly affect the performance of the program.
+    
+4.  Explain as precisely as possible, in a paragraph or more, how main goes about reading words from a file.
+    In other words, convince us that you indeed understand how that function’s for loop works.
+    
+    speller.c reads words from a file by using a for loop. The loop reads each character sequentially until the end of the file.
+    If the character is a letter or an apostrophe it is appended to the word array. The for loop ignores numbers and words longer
+    than 45 characters. Once we have found a whole word the loop checks the spelling and prints it if it is misspelled.
+    
+5.  Why do you think we used fgetc to read each word’s characters one at a time rather than use fscanf with a format
+    string like "%s" to read whole words at a time? Put another way, what problems might arise by relying on fscanf alone?
+    
+    We use fgetc to read each character at a time because we can then filter out characters that we don't want more easily,
+    such as numbers and special characters.
+    
+6.  Why do you think we declared the parameters for check and load as const (which means "constant")?
+
+    We declare check and load as constants because the words we want to check and the dictionary we load are not changed by
+    the program. They are just files that are read.
