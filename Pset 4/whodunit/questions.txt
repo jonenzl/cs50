@@ -1,0 +1,63 @@
+1.  What’s stdint.h?
+
+    stdint.h is a header file that provides a set of typedefs that specify exact-width integer types, together with the defined
+    minimum and maximum allowable values for each type, using macros.
+
+2.  What’s the point of using uint8_t, uint32_t, int32_t, and uint16_t in a program?
+
+    You can fill up exactly the amount of space you want in a file which is good for things like bitmap headers.
+
+3.  How many bytes is a BYTE, a DWORD, a LONG, and a WORD, respectively?
+
+    BYTE = 1 byte (8 bits), DWORD = 2 bytes (16 bits), LONG = 4 bytes (32 bits), WORD = 2 bytes (16 bits)
+
+4.  What (in ASCII, decimal, or hexadecimal) must the first two bytes of any BMP file be? Leading bytes used to identify
+file formats (with high probability) are generally called "magic numbers."
+
+    Hex:    0x424d
+    ASCII:  BM (bitmap!)
+    This value is stored in "bfType"
+
+5.  What’s the difference between bfSize and biSize?
+
+    bfSize is the size, in bytes, of the bitmap file. biSize is the number of bytes required by the structure.
+
+6.  What does it mean if biHeight is negative?
+
+    If biHeight is negative, the bitmap is a top-down DIB and its origin is the upper-left corner. If biHeight is negative,
+    indicating a top-down DIB, biCompression must be either BI_RGB or BI_BITFIELDS. Top-down DIBs cannot be compressed.
+
+7.  What field in BITMAPINFOHEADER specifies the BMP’s color depth (i.e., bits per pixel)?
+
+    biBitCount
+
+8.  Why might fopen return NULL in lines 24 and 32 of copy.c?
+
+    Because if you are opening a file to read using r then that file must exist, otherwise fopen will return NULL.
+
+9.  Why is the third argument to fread always 1 in our code?
+
+    Because we want to read the entire file in only one block.
+
+10. What value does line 65 of copy.c assign to padding if bi.biWidth is 3?
+
+    int padding =  (4 - (bi.biWidth * sizeof(RGBTRIPLE)) % 4) % 4
+    int padding =  (4 - (3 * 3)) % 4) % 4
+    int padding =  (4 - (9 % 4)) % 4
+    int padding =  (4 - (9 % 4)) % 4
+    int padding =  (4 - 1) % 4
+    int padding =  3 % 4
+    int padding =  3
+
+11. What does fseek do?
+
+    fseek sets file position.
+    
+    int fseek(FILE* fp, long int offset, int from_where);
+    
+    Allows you to change the location of the file pointer. The offset refers to how many bytes you want to change the current 
+    position of the file pointer fp. You can go both forward with positive numbers, or backward with negative numbers.
+
+12. What is SEEK_CUR?
+
+    The current location of the file pointer.
