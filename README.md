@@ -1,7 +1,11 @@
 # Harvard CS50: Introduction to Computer Science
-Problem sets and projects for Harvard CS50: Introduction to Computer Science
+
+This is CS50, Harvard University's introduction to the intellectual enterprises of computer science and the art of programming.
 
 ### Psets:
+
+Problem sets and projects for Harvard CS50: Introduction to Computer Science
+
 * Problem Set 0: [Scratch](http://docs.cs50.net/2017/x/psets/0/pset0.html)
 * Problem Set 1: [C](http://docs.cs50.net/2017/x/psets/1/pset1.html)
 * Problem Set 2: [Crypto](http://docs.cs50.net/2017/x/psets/2/pset2.html)
