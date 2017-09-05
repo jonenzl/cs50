@@ -1,10 +1,5 @@
 # Problem Set 2: Crypto
 
-### Objectives
-
-* Become better acquainted with functions and libraries
-* Dabble in cryptography
-
 ### Projects
 
 * Implement initials.c, a program that, given a person’s name, prints a person’s initials
